@@ -1,5 +1,5 @@
 package exceptions;
 
-public class Chocolate extends Product{
+public class Chocolate extends Product {
 
 }
