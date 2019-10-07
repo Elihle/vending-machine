@@ -62,15 +62,17 @@ private int softDrinkCount = 0;
         }
     }
 
-    public int  getStock() {
-        return stockCount;
+    public int getStock() {
+        return chocolateCount + softDrinkCount + saltySnackCount ;
     }
 
     public static void main(String[] args) {
         VendingMachine vendingMachine = new VendingMachine();
         Product saltySnack = new SaltySnack();
         Product softDrink = new SoftDrink();
+        Product chocolate = new Chocolate();
 
+//      FOR SALTYSNACKS
         try {
             vendingMachine.addStock(saltySnack, 0);
             vendingMachine.buy(saltySnack);
@@ -80,6 +82,7 @@ private int softDrinkCount = 0;
             ex.printStackTrace();
         }
 
+//      FOR SOFTDRINKS
         try {
             System.out.println("------------");
             vendingMachine.addStock(softDrink, 1);
@@ -91,17 +94,20 @@ private int softDrinkCount = 0;
             ex.printStackTrace();
         }
 
-//        try {
-//            vendingMachine.addStock(salt, 1);
-//            vendingMachine.buy(salt);
-//        } catch (InvalidProductException e) {
-//            System.out.println("Invalid Product");
-//        } catch (InvalidProductException ex){
-//            ex.printStackTrace();
-//        }
-        System.out.println("------------");
-        vendingMachine.addStock(softDrink, 10);
-        System.out.println(vendingMachine.getStock());
+//      FOR CHOCOLATES
+        try {
+            System.out.println("------------");
+            vendingMachine.addStock(chocolate, 2);
+            vendingMachine.buy(chocolate);
+            vendingMachine.buy(chocolate);
+            vendingMachine.buy(chocolate);
+            System.out.println("TotalStock : "+ vendingMachine.getStock());
+        } catch (ChocolatesAllGone ex) {
+            System.out.println("Chocolates Not Found");
+        } catch (ProductNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
 
     }
 
