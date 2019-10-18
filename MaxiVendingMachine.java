@@ -5,7 +5,7 @@ import exceptions.custom_exceptions.*;
 public class MaxiVendingMachine extends VendingMachine {
 
     @Override
-    void buy(Product product) throws ProductNotFoundException {
+    public void buy(Product product) throws ProductNotFoundException {
         if (product instanceof SaltySnack) {
             if (saltySnackCount <= 0) {
                 throw new SaltySnacksAllEatenException();
@@ -30,7 +30,7 @@ public class MaxiVendingMachine extends VendingMachine {
     }
 
     @Override
-    void addStock(Product product, int newStock) {
+    public void addStock(Product product, int newStock) {
         if (product instanceof SaltySnack) {
             saltySnackCount += newStock;
             System.out.println("SaltySnack Count: " + saltySnackCount);

@@ -8,7 +8,7 @@ public class VendingMachine extends Product{
     int saltySnackCount = 0;
     int softDrinkCount = 0;
 
-    void buy(Product product) throws ProductNotFoundException {
+   public void buy(Product product) throws ProductNotFoundException {
         if (product instanceof SaltySnack) {
             if (saltySnackCount <= 0) {
                 throw new SaltySnacksAllEatenException();
